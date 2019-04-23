@@ -1,18 +1,15 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import Button from "../button";
-import { connect } from "react-redux";
-// test api
-import { fetchImages } from "../../api";
+// import action phuc vu viec load api
+import { fetchApi } from "../../actions";
 
 class ImagesGrid extends Component {
   componentDidMount() {
-    fetchImages(1).then(res => console.log(res));
+    this.props.fetchApi();
   }
-  constructor(props) {
-    super(props);
-    console.log(this.props.test);
-  }
+
   render() {
     return (
       <div className="content">
@@ -30,7 +27,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    //
+    fetchApi: () => dispatch(fetchApi())
   };
 };
 
