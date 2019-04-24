@@ -2,10 +2,12 @@ import React from "react";
 
 import "./style.css";
 
-const Button = ({ children, loading }) => {
-  return <button disabled={loading} className="button">
-    { children }
-  </button>;
+let Button = ({ children, loading, ...props }) => {
+  return (
+    <button disabled={loading} className="button" {...props}>
+      {children}
+    </button>
+  );
 };
 
 export default Button;

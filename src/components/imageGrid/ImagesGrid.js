@@ -1,19 +1,52 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import Button from '../button';
+import Button from "../button";
+import "./style.css";
+// import action phuc vu viec load api
+import { fetchApi } from "../../actions";
 
 class ImagesGrid extends Component {
+  componentDidMount() {
+    this.props.fetchApi();
+  }
+
   render() {
-    return(
+    const { fetchApi, statusLoad, images } = this.props; // status la trang thai loading
+    return (
       <div className="content">
         <section className="grid">
-        // write images
+          {images.map(image => (
+            <div
+              key={image.id}
+              className={`item item-${Math.ceil(image.height / image.width)}`}
+            >
+              {/* <Stats stats={imageStats[image.id]} /> */}
+              <img src={image.urls.small} alt={image.user.username} />
+            </div>
+          ))}
         </section>
-        // thong bao error
-        <Button loading={ false }>Loadmore</Button>
+        <Button onClick={() => !statusLoad && fetchApi()} loading={statusLoad}>
+          Loadmore
+        </Button>
       </div>
-    )
+    );
   }
 }
+const mapStateToProps = state => {
+  return {
+    statusLoad: state.isLoading,
+    images: state.data
+  };
+};
 
-export default ImagesGrid;
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchApi: () => dispatch(fetchApi())
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ImagesGrid);
