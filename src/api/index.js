@@ -9,7 +9,7 @@ let fetchImages = async page => {
     throw new Error(res.errors);
   }
 
-  return data
-}
+  return data;
+};
 
-export { fetchImages }
+export { fetchImages };
