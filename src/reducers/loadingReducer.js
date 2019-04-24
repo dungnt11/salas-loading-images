@@ -1,10 +1,10 @@
 import { IMAGES } from "../constants";
 
-let myReducer = (state = [1, 2, 3], action) => {
+let myReducer = (state = [], action) => {
   switch (action.type) {
     case IMAGES.LOAD_SUCCESS:
-      console.log([...state, action.data]);
-      return [...state, action.data];
+      console.log([...state, ...action.data]);
+      return [...state, ...action.data];
     default:
       return state;
   }

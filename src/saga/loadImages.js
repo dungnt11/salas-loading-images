@@ -2,12 +2,13 @@ import { put, call, select, takeLatest } from "redux-saga/effects";
 
 import { fetchImages } from "../api";
 import { getImagesError, getImagesSuccess } from "../actions";
-import { IMAGES } from '../constants';
-// const getCurrentPage = ...
+import { IMAGES } from "../constants";
+export const getCurrentPage = state => state.currentPage;
 
 export function* getApi() {
   try {
-    let imgs = yield call(fetchImages, 1);
+    let currentPage = yield select(getCurrentPage);
+    let imgs = yield call(fetchImages, currentPage);
     yield put(getImagesSuccess(imgs));
   } catch (err) {
     yield put(getImagesError(err));
@@ -15,5 +16,5 @@ export function* getApi() {
 } // get api from api/index.js
 
 export default function* watchFetchApi() {
-  yield takeLatest(IMAGES.FETCH, getApi)
+  yield takeLatest(IMAGES.FETCH, getApi);
 }

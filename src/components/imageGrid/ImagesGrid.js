@@ -11,17 +11,24 @@ class ImagesGrid extends Component {
   }
 
   render() {
+    const { fetchApi, statusLoad } = this.props; // status la trang thai loading
     return (
       <div className="content">
-        <section className="grid" />
-        <Button loading={false}>Loadmore</Button>
+        <section className="grid">
+          <Button
+            onClick={() => !statusLoad && fetchApi()}
+            loading={statusLoad}
+          >
+            Loadmore
+          </Button>
+        </section>
       </div>
     );
   }
 }
 const mapStateToProps = state => {
   return {
-    test: state.isLoading
+    statusLoad: state.isLoading
   };
 };
 
