@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/salas-loading-images/static/css/main.5ff54ccb.chunk.css",
+    "main.js": "/salas-loading-images/static/js/main.c67199cc.chunk.js",
+    "main.js.map": "/salas-loading-images/static/js/main.c67199cc.chunk.js.map",
+    "runtime~main.js": "/salas-loading-images/static/js/runtime~main.9bd52a3c.js",
+    "runtime~main.js.map": "/salas-loading-images/static/js/runtime~main.9bd52a3c.js.map",
+    "static/js/2.a8fc8d78.chunk.js": "/salas-loading-images/static/js/2.a8fc8d78.chunk.js",
+    "static/js/2.a8fc8d78.chunk.js.map": "/salas-loading-images/static/js/2.a8fc8d78.chunk.js.map",
+    "index.html": "/salas-loading-images/index.html",
+    "precache-manifest.80cba74ff0d247984fe184363590ae5d.js": "/salas-loading-images/precache-manifest.80cba74ff0d247984fe184363590ae5d.js",
+    "service-worker.js": "/salas-loading-images/service-worker.js",
+    "static/css/main.5ff54ccb.chunk.css.map": "/salas-loading-images/static/css/main.5ff54ccb.chunk.css.map"
+  }
+}
