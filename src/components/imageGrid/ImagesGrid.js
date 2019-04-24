@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import Button from "../button";
+import "./style.css";
 // import action phuc vu viec load api
 import { fetchApi } from "../../actions";
 
@@ -11,24 +12,31 @@ class ImagesGrid extends Component {
   }
 
   render() {
-    const { fetchApi, statusLoad } = this.props; // status la trang thai loading
+    const { fetchApi, statusLoad, images } = this.props; // status la trang thai loading
     return (
       <div className="content">
         <section className="grid">
-          <Button
-            onClick={() => !statusLoad && fetchApi()}
-            loading={statusLoad}
-          >
-            Loadmore
-          </Button>
+          {images.map(image => (
+            <div
+              key={image.id}
+              className={`item item-${Math.ceil(image.height / image.width)}`}
+            >
+              {/* <Stats stats={imageStats[image.id]} /> */}
+              <img src={image.urls.small} alt={image.user.username} />
+            </div>
+          ))}
         </section>
+        <Button onClick={() => !statusLoad && fetchApi()} loading={statusLoad}>
+          Loadmore
+        </Button>
       </div>
     );
   }
 }
 const mapStateToProps = state => {
   return {
-    statusLoad: state.isLoading
+    statusLoad: state.isLoading,
+    images: state.data
   };
 };
 
