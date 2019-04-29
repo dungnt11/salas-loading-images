@@ -10,5 +10,6 @@ this project create 23/04/2019 *Project using react, redux, redux-saga*
 ```
   "start": "set PORT=*** && react-scripts start"
 ```
+- build app *[link](https://dungnt11.github.io/salas-loading-images/)*
 ## - create by nihilismJS - 
 
